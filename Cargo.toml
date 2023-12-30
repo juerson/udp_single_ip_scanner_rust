@@ -1,0 +1,46 @@
+[package]
+name = "udp_single_ip_scanner_rust"
+version = "0.1.0"
+edition = "2021"
+rustc-version = "1.75.0" # 开发调试时，所用的版本
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+ipnetwork = "0.20.0"
+rayon = "1.8.0"
+clap = "2"
+crossbeam = "0.8.2"
+
+#[target.x86_64-pc-windows-msvc]
+#rustflags = ["-C", "target-feature=+crt-static"]
+
+[[bin]]
+name = "udp_single_ip_scanner"
+path = "src/main.rs"
+target = "x86_64-pc-windows-msvc"
+
+[[bin]]
+name = "1_普通写法"
+path = "src/main-普通写法.rs"
+target = "x86_64-pc-windows-msvc"
+
+[[bin]]
+name = "2_线程写法-普通线程"
+path = "src/main-线程写法1-普通线程.rs"
+target = "x86_64-pc-windows-msvc"
+
+[[bin]]
+name = "2_线程写法-rayon并行"
+path = "src/main-线程写法2-rayon并行线程.rs"
+target = "x86_64-pc-windows-msvc"
+
+[[bin]]
+name = "3_cli-rayon并行线程"
+path = "src/main-CLI命令执行该程序1-rayon.rs"
+target = "x86_64-pc-windows-msvc"
+
+[[bin]]
+name = "3_cli-rayon并行线程-crossbeam"
+path = "src/main-CLI命令执行该程序2-rayon-crossbeam.rs"
+target = "x86_64-pc-windows-msvc"
